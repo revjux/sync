@@ -1,0 +1,117 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sync — build in public, together</title><meta name="description" content="Sync is where serious builders share build logs, get honest answers, launch products and find co-founders.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<style>
+:root{--bg:#F6F6F4;--tx:#16181D;--mu:#757882;--bd:#E2E2DD;--ac:#8C6D3F;--inv:#F6F6F4;--err:#B4443A;
+--serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;--sans:system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif}
+@media(prefers-color-scheme:dark){:root{--bg:#0E1116;--tx:#EDEBE6;--mu:#8E919A;--bd:#23262D;--ac:#C9AE82;--inv:#0E1116;--err:#E0776C}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;font:15px/1.65 var(--sans);background:var(--bg);color:var(--tx);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}.body a{color:var(--ac);text-decoration:underline;text-underline-offset:3px}
+:focus-visible{outline:1px solid var(--ac);outline-offset:3px}
+.wrap{max-width:1040px;margin:auto;padding:0 28px}
+header{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--bd)}
+.bar{display:flex;gap:28px;align-items:center;height:68px}
+.logo{display:flex;align-items:center;gap:10px;font:400 26px/1 var(--serif);letter-spacing:-.02em}
+.logo svg{width:26px;height:26px}.sp{flex:1}
+.bar nav a,.bar #nav a:not(.btn),.bar #nav button.link{color:var(--mu);transition:color .2s}
+.bar nav a:hover,.bar #nav a:not(.btn):hover,.bar #nav button.link:hover{color:var(--tx)}
+#nav{display:flex;gap:22px;align-items:center}
+input,textarea,select{font:inherit;padding:11px 0;border:0;border-bottom:1px solid var(--bd);border-radius:0;background:transparent;color:var(--tx);width:100%;transition:border-color .2s}
+input:focus,textarea:focus,select:focus{outline:0;border-bottom-color:var(--ac)}
+input::placeholder,textarea::placeholder{color:var(--mu)}
+select{appearance:none;cursor:pointer}select option{background:var(--bg);color:var(--tx)}
+textarea{min-height:180px;resize:vertical;line-height:1.7}
+#q{width:170px;font-size:14px;padding:6px 0}
+button,.btn{font:inherit;cursor:pointer;border:1px solid var(--tx);background:transparent;color:var(--tx);padding:10px 24px;border-radius:2px;display:inline-block;transition:background .2s,color .2s,border-color .2s;letter-spacing:.01em}
+button:hover,.btn:hover{background:var(--tx);color:var(--inv)}
+.pri{background:var(--tx);color:var(--inv)}.pri:hover{background:var(--ac);border-color:var(--ac);color:var(--inv)}
+button.link{border:0;padding:0;background:none;color:var(--mu)}button.link:hover{background:none}
+.sm{padding:7px 18px;font-size:14px}
+.hero{padding:104px 0 88px;border-bottom:1px solid var(--bd)}
+.hero h1{font:400 clamp(42px,7.4vw,84px)/1.03 var(--serif);letter-spacing:-.028em;margin:0;max-width:13em}
+.hero p.lead{font-size:19px;line-height:1.6;color:var(--mu);max-width:34em;margin:30px 0 40px}
+.hero .cta{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.hero .cta .btn{padding:14px 34px}
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:88px}
+.pillars div{padding:0 32px;border-left:1px solid var(--bd)}.pillars div:first-child{padding-left:0;border-left:0}
+.pillars h2{font:400 22px/1.25 var(--serif);margin:0 0 10px;letter-spacing:-.01em}.pillars p{margin:0;color:var(--mu);font-size:14.5px}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.hero .in{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}.hero .in.d1{animation-delay:.12s}.hero .in.d2{animation-delay:.24s}
+@media(prefers-reduced-motion:reduce){.hero .in{animation:none}}
+main{display:grid;grid-template-columns:minmax(0,1fr) 190px;gap:80px;padding-top:56px;padding-bottom:120px}
+.side{position:sticky;top:96px;height:fit-content}
+.side h3{font:400 15px var(--sans);color:var(--mu);margin:0 0 14px}
+.side a{display:flex;justify-content:space-between;padding:6px 0;color:var(--tx);transition:color .2s}.side a:hover{color:var(--ac)}.side small{color:var(--mu)}
+.side .all{color:var(--mu);margin-top:10px;font-size:14px}
+.tabs{display:flex;gap:26px;flex-wrap:wrap;margin-bottom:8px;border-bottom:1px solid var(--bd)}
+.tabs a{padding:0 0 14px;color:var(--mu);border-bottom:1px solid transparent;margin-bottom:-1px;font-size:14.5px;transition:color .2s}
+.tabs a:hover{color:var(--tx)}.tabs a.on{color:var(--tx);border-bottom-color:var(--ac)}
+.post{display:flex;gap:22px;padding:30px 0;border-bottom:1px solid var(--bd)}
+.vote{display:flex;flex-direction:column;align-items:center;min-width:34px;gap:2px;color:var(--mu);font-size:13px}
+.vote button{border:0;background:none;padding:4px;color:inherit;line-height:0}.vote button:hover{background:none;color:var(--ac)}
+.vote svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:1.5}.vote.on{color:var(--ac)}.vote.on svg{fill:currentColor}
+.t{font:400 24px/1.25 var(--serif);letter-spacing:-.012em;display:block;transition:color .2s}a.t:hover{color:var(--ac)}
+.post.full .t{font-size:clamp(30px,4.6vw,44px);line-height:1.12;letter-spacing:-.022em}
+.meta{color:var(--mu);font-size:13.5px;margin-top:10px;display:flex;gap:6px 18px;flex-wrap:wrap}.meta a:hover{color:var(--tx)}.meta .ty{color:var(--ac);font-style:italic;font-family:var(--serif);font-size:15px;line-height:1.3}
+.page-h{padding-bottom:30px;border-bottom:1px solid var(--bd)}.page-h h2,.panel h2{font:400 clamp(32px,5vw,48px)/1.1 var(--serif);letter-spacing:-.022em;margin:0 0 12px}
+.page-h p{margin:0;color:var(--mu);max-width:32em}
+.panel{max-width:460px}.panel .intro{color:var(--mu);margin:0 0 34px}
+form>*{margin-bottom:22px}label{font-size:13.5px;color:var(--mu);display:block;margin-bottom:-12px}
+.row{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.err{color:var(--err);font-size:14px;min-height:0}.err:empty{display:none}
+.body{word-break:break-word;font-size:17px;line-height:1.8;padding:34px 0;border-bottom:1px solid var(--bd);max-width:40em}
+.cm{padding:22px 0;border-bottom:1px solid var(--bd)}.cm .body{padding:6px 0 0;border:0;font-size:15.5px;line-height:1.7}
+.comments{margin-top:44px;max-width:40em}.comments h3{font:400 24px var(--serif);margin:0 0 4px;letter-spacing:-.01em}
+.empty{padding:56px 0;color:var(--mu)}.empty a{color:var(--ac);text-decoration:underline;text-underline-offset:3px}
+.spaces-list a{display:block;padding:24px 0;border-bottom:1px solid var(--bd)}.spaces-list b{font:400 24px var(--serif);letter-spacing:-.01em;transition:color .2s}.spaces-list a:hover b{color:var(--ac)}.spaces-list span{display:block;color:var(--mu);margin-top:4px}
+.mt{margin-top:64px}
+@media(max-width:820px){main{grid-template-columns:1fr;gap:48px}.side{position:static;order:2}.pillars{grid-template-columns:1fr;gap:34px}.pillars div{padding:0;border:0}.hero{padding:64px 0 56px}.pillars{margin-top:56px}#q{display:none}.bar{gap:18px}.wrap{padding:0 20px}.post{gap:16px}}
+</style></head><body>
+<header><div class="wrap bar"><a class="logo" href="#/" aria-label="Sync home"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="25" cy="32" r="14" fill="none" stroke="var(--ac)" stroke-width="3"/><circle cx="39" cy="32" r="14" fill="none" stroke="currentColor" stroke-width="3"/></svg>sync</a><nav><a href="#/spaces">Spaces</a></nav><div class="sp"></div>
+<input id="q" placeholder="Search" aria-label="Search"><span id="nav"></span></div></header>
+<div id="hero"></div>
+<div class="wrap"><main><section id="app"></section><aside class="side" id="side"></aside></main></div>
+<script>
+const app=document.getElementById('app'),side=document.getElementById('side'),hero=document.getElementById('hero');let me=null,F={type:'',sort:'new',q:''},spaces=[];
+const api=async(p,m='GET',b)=>{const r=await fetch('/api'+p,{method:m,headers:{'Content-Type':'application/json'},body:b?JSON.stringify(b):undefined});const d=await r.json().catch(()=>({}));if(!r.ok)throw new Error(d.error||'Something went wrong');return d};
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const fmt=s=>esc(s).replace(/(https?:\/\/[^\s<]+)/g,'<a href="$1" target="_blank" rel="noopener nofollow">$1</a>').replace(/\n/g,'<br>');
+const ago=t=>{const s=(Date.now()-t)/1e3;return s<60?'just now':s<3600?Math.floor(s/60)+'m ago':s<86400?Math.floor(s/3600)+'h ago':Math.floor(s/86400)+'d ago'};
+const TY={log:'Build log',question:'Question',launch:'Launch',cofounder:'Co-founder',discussion:'Discussion'};
+const chev='<svg viewBox="0 0 14 14"><path d="M2 10 7 3.5 12 10Z" stroke-linejoin="round"/></svg>';
+const card=(p,full)=>`<div class="post${full?' full':''}"><div class="vote ${p.voted?'on':''}"><button onclick="vote(${p.id})" aria-label="Upvote">${chev}</button><b>${p.score}</b></div><div>${full?`<h1 class="t" style="margin:0">${esc(p.title)}</h1>`:`<a class="t" href="#/post/${p.id}">${esc(p.title)}</a>`}
+<div class="meta"><span class="ty">${TY[p.type]}</span><a href="#/s/${p.space}">${esc(p.space)}</a><a href="#/u/${esc(p.author)}">@${esc(p.author)}</a><span>${ago(p.created)}</span><span>${p.comments} ${p.comments===1?'comment':'comments'}</span></div></div></div>`;
+const rerender=()=>route();
+async function vote(id){try{await api('/posts/'+id+'/vote','POST');rerender()}catch(e){location.hash='#/login'}}
+function nav(){document.getElementById('nav').innerHTML=me?`<a class="btn pri sm" href="#/new">New post</a><a href="#/u/${me}">@${esc(me)}</a><button class="link" onclick="logout()">Log out</button>`:`<a href="#/login">Log in</a><a class="btn pri sm" href="#/login">Join Sync</a>`}
+async function logout(){await api('/logout','POST');me=null;nav();location.hash='#/'}
+async function sidebar(){spaces=await api('/spaces');side.innerHTML=`<h3>Spaces</h3>${spaces.map(s=>`<a href="#/s/${s.slug}">${esc(s.name)} <small>${s.posts}</small></a>`).join('')}<a class="all" href="#/spaces">Browse all or create one</a>`}
+function heroBlock(){return `<div class="hero"><div class="wrap"><h1 class="in">Build in public. Find the people worth building with.</h1><p class="lead in d1">Sync is a focused home for serious builders. Share your progress, get answers from people who have shipped, launch to an audience that cares, and meet the co-founder you have been missing.</p><div class="cta in d2"><a class="btn pri" href="#/login">Join Sync</a><a class="btn" href="#feed" onclick="document.getElementById('app').scrollIntoView({behavior:'smooth'});return false">Read the feed</a></div>
+<div class="pillars"><div><h2>Progress that compounds</h2><p>Every build log is a public record of momentum. Followers become customers, and customers become advocates.</p></div><div><h2>Answers from operators</h2><p>Ask a hard question and hear from people who have already solved it, not from a crowd chasing clicks.</p></div><div><h2>A partner, not a cold DM</h2><p>Co-founder posts sit beside real work, so you can judge someone by what they have built before you say hello.</p></div></div></div></div>`}
+async function feed(space){const p=new URLSearchParams({sort:F.sort});if(space)p.set('space',space);if(F.type)p.set('type',F.type);if(F.q)p.set('q',F.q);
+ const l=await api('/posts?'+p),sp=spaces.find(s=>s.slug===space);
+ hero.innerHTML=(!space&&!me&&!F.q)?heroBlock():'';
+ app.innerHTML=(space?`<div class="page-h" style="margin-bottom:34px"><h2>${esc(sp?sp.name:space)}</h2><p>${esc(sp?sp.description:'')}</p></div>`:'')+
+ `<div class="tabs">${[['','All'],...Object.entries(TY)].map(([k,v])=>`<a href="#" class="${F.type===k?'on':''}" onclick="F.type='${k}';rerender();return false">${v}</a>`).join('')}<span class="sp"></span><a href="#" class="${F.sort==='new'?'on':''}" onclick="F.sort='new';rerender();return false">Newest</a><a href="#" class="${F.sort==='top'?'on':''}" onclick="F.sort='top';rerender();return false">Top</a></div>`+(l.map(x=>card(x)).join('')||`<div class="empty">No posts here yet. <a href="#/new">Start the conversation.</a></div>`)}
+async function postPage(id){const p=await api('/posts/'+id);app.innerHTML=card(p,true)+`<div class="body">${fmt(p.body)||'<i style="color:var(--mu)">No details added.</i>'}${me===p.author?`<p style="margin:28px 0 0"><button class="link" onclick="del(${p.id})">Delete post</button></p>`:''}</div>
+<div class="comments"><h3>${p.list.length} ${p.list.length===1?'comment':'comments'}</h3>${p.list.map(c=>`<div class="cm"><div class="meta" style="margin:0"><a href="#/u/${esc(c.author)}">@${esc(c.author)}</a><span>${ago(c.created)}</span></div><div class="body">${fmt(c.body)}</div></div>`).join('')}
+<div class="mt" style="margin-top:34px">${me?`<form onsubmit="return cmt(event,${p.id})"><textarea name="body" style="min-height:96px" placeholder="Add something useful"></textarea><div class="err" id="e"></div><button class="pri">Post comment</button></form>`:'<p><a style="color:var(--ac);text-decoration:underline;text-underline-offset:3px" href="#/login">Log in</a> to join the conversation.</p>'}</div></div>`}
+async function cmt(e,id){e.preventDefault();try{await api('/posts/'+id+'/comments','POST',{body:e.target.body.value});rerender()}catch(x){document.getElementById('e').textContent=x.message}return false}
+async function del(id){if(confirm('Delete this post?')){await api('/posts/'+id,'DELETE');location.hash='#/'}}
+function newPost(){if(!me)return location.hash='#/login';app.innerHTML=`<div class="panel" style="max-width:640px"><h2>New post</h2><p class="intro">Be specific. Posts with real detail earn real replies.</p><form onsubmit="return mk(event)"><label>Type</label><select name="type">${Object.entries(TY).map(([k,v])=>`<option value="${k}">${v}</option>`).join('')}</select>
+<label>Space</label><select name="space">${spaces.map(s=>`<option value="${s.slug}">${esc(s.name)}</option>`).join('')}</select><input name="title" placeholder="Title" maxlength="140" required><textarea name="body" placeholder="What are you building, asking or launching?"></textarea><div class="err" id="e"></div><button class="pri">Publish</button></form></div>`}
+async function mk(e){e.preventDefault();const f=e.target;try{const p=await api('/posts','POST',{type:f.type.value,space:f.space.value,title:f.title.value,body:f.body.value});location.hash='#/post/'+p.id}catch(x){document.getElementById('e').textContent=x.message}return false}
+function authPage(){app.innerHTML=`<div class="panel"><h2>Join Sync</h2><p class="intro">Free to join. Your first post is ten seconds away.</p><form onsubmit="return au(event)"><input name="username" placeholder="Username" autocomplete="username" required><input name="password" type="password" placeholder="Password, 8+ characters" autocomplete="current-password" required><div class="err" id="e"></div><div class="row"><button class="pri" data-m="login">Log in</button><button type="button" onclick="au(null,'signup')">Create account</button></div></form></div>`}
+async function au(e,m){const f=document.querySelector('form');if(e)e.preventDefault();try{const r=await api('/'+(m||'login'),'POST',{username:f.username.value,password:f.password.value});me=r.username;nav();location.hash='#/'}catch(x){document.getElementById('e').textContent=x.message}return false}
+async function userPage(n){const u=await api('/users/'+n);app.innerHTML=`<div class="page-h"><h2>@${esc(u.username)}</h2><p>${u.karma} karma, joined ${new Date(u.created).toLocaleDateString()}</p></div>`+(u.posts.map(x=>card(x)).join('')||'<div class="empty">No posts yet.</div>')}
+function spacesPage(){app.innerHTML=`<div class="page-h"><h2>Spaces</h2><p>Smaller rooms for focused conversation.</p></div><div class="spaces-list">${spaces.map(s=>`<a href="#/s/${s.slug}"><b>${esc(s.name)}</b><span>${esc(s.description)} (${s.posts} ${s.posts===1?'post':'posts'})</span></a>`).join('')}</div>
+${me?`<div class="panel mt"><h2 style="font-size:30px">Create a space</h2><form onsubmit="return ns(event)"><input name="name" placeholder="Name, for example Turkish Founders" required><input name="description" placeholder="What is it about?"><div class="err" id="e"></div><button class="pri">Create space</button></form></div>`:''}`}
+async function ns(e){e.preventDefault();try{const r=await api('/spaces','POST',{name:e.target.name.value,description:e.target.description.value});await sidebar();location.hash='#/s/'+r.slug}catch(x){document.getElementById('e').textContent=x.message}return false}
+async function route(){const[,a,b]=(location.hash.slice(1)||'/').split('/');if(a!=='' )hero.innerHTML='';window.scrollTo(0,0);try{await sidebar();
+ if(a==='post')await postPage(b);else if(a==='new')newPost();else if(a==='login')authPage();else if(a==='u')await userPage(b);else if(a==='spaces')spacesPage();else await feed(a==='s'?b:'')}
+ catch(e){app.innerHTML=`<p class="err">${esc(e.message)}</p>`}}
+document.getElementById('q').addEventListener('keydown',e=>{if(e.key==='Enter'){F.q=e.target.value;location.hash='#/';route()}});
+window.addEventListener('hashchange',route);
+api('/me').then(r=>{me=r.user&&r.user.username;nav();route()});
+</script></body></html>
